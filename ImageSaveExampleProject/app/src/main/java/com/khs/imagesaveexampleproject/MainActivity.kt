@@ -163,15 +163,10 @@ class MainActivity : AppCompatActivity() {
                 // write 모드로 file을 open한다.
 
                 if(image != null) {
-                    val bos = ByteArrayOutputStream()
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos)
-                    val bitmapData = bos.toByteArray()
-                    //비트맵을 ByteArrayOutputStream를 통해 compress한 후에, ByteArray로 만들어준다.
-
                     val fos = FileOutputStream(image.fileDescriptor)
-                    fos.write(bitmapData)
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
+                    //비트맵을 FileOutputStream를 통해 compress한다.
                     fos.close()
-                    // FileOutputStream으로 image를 열어서 ByteArray로 된 bitmapData를 파일에 써준다.
 
                     contentValues.clear()
                     contentValues.put(MediaStore.Images.Media.IS_PENDING, 0) // 저장소 독점을 해제한다.
