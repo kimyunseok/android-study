@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">InstagramShareExampleProject</string>
+    <string name="img_change">이미지 변경</string>
+    <string name="bg_change">배경색 변경</string>
+    <string name="share_img">인스타 공유</string>
+</resources>
