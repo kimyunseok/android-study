@@ -18,11 +18,12 @@ class WebViewFragment: Fragment() {
 
         initWebView()
 
-        return webView
+        return webView // 나타나는 뷰를 웹뷰로 설정한다.
     }
 
+    //웹뷰 초기화 메서드.
     private fun initWebView() {
-        val url = arguments?.getString("url")
+        val url = arguments?.getString("url") // 메인 액티비티에서 입력한 주소를 받아온다.
         webView = MyWebView(requireContext(), url.toString())
     }
 
