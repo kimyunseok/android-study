@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WebViewExampleProject</string>
+    <string name="webViewFragment">WebView In Fragment</string>
+    <string name="webViewActivity">WebView In Activity</string>
+    <string name="webViewDialog">WebView In Dialog</string>
+    <string name="https">https://</string>
 </resources>
