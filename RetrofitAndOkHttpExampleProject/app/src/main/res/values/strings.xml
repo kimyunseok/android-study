@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RetrofitAndOkHttpExampleProject</string>
+    <string name="prefs_key">my_prefs</string>
+
+    <!-- Main -->
+    <string name="introduce_search_comment">백준 ID를 입력하고 검색을 눌러주세요.</string>
+    <string name="search">검색</string>
+
+    <!-- UserProfile -->
+    <string name="no_user_id">ID에 해당하는\n유저가 없습니다.</string>
+    <string name="solved_count">푼 문제 수 : </string>
+    <string name="tier">티어 : </string>
+
+</resources>
