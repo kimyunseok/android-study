@@ -2,7 +2,11 @@ package com.khs.retrofitandokhttpexampleproject.ui.main
 
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import com.khs.retrofitandokhttpexampleproject.R
+import com.khs.retrofitandokhttpexampleproject.api.APIViewModelFactory
+import com.khs.retrofitandokhttpexampleproject.api.SolvedAcAPIRepository
+import com.khs.retrofitandokhttpexampleproject.api.apiviewmodel.UserDataViewModel
 import com.khs.retrofitandokhttpexampleproject.databinding.FragmentMainBinding
 import com.khs.retrofitandokhttpexampleproject.ui.BaseFragment
 import com.khs.retrofitandokhttpexampleproject.ui.user.UserProfileFragment
