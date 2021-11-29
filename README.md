@@ -23,7 +23,7 @@
 [![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/137) 
 [![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/ImageSaveExampleProject/)
 
-##### 6. Image Share On Instagram
+##### 6. Image(View) Share On Instagram Story
 [![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/139) 
 [![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/InstagramShareExampleProject)
 
