@@ -16,6 +16,7 @@ class GlobalApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         appInstance = this
+
         appDataBaseInstance = Room.databaseBuilder(
             appInstance.applicationContext,
             AppDataBase::class.java, "exampleApp.db"

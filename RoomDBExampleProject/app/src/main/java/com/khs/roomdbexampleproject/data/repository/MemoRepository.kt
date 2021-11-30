@@ -7,9 +7,9 @@ import com.khs.roomdbexampleproject.data.model.Memo
 class MemoRepository {
     private val appDBInstance = GlobalApplication.appDataBaseInstance.memoDao()
 
-    fun insertMemo(memo: Memo) = appDBInstance.insertMemo(memo)
-    fun deleteMemo(memo: Memo) = appDBInstance.deleteMemo(memo)
-    fun deleteMemoByID(id: Long) = appDBInstance.deleteMemoByID(id)
-    fun getAllMemo() = appDBInstance.getAllMemo()
-    fun modifyMemo(id: Long, memo: String) = appDBInstance.modifyMemo(id, memo)
+    suspend fun insertMemo(memo: Memo) = appDBInstance.insertMemo(memo)
+    suspend fun deleteMemo(memo: Memo) = appDBInstance.deleteMemo(memo)
+    suspend fun deleteMemoByID(id: Long) = appDBInstance.deleteMemoByID(id)
+    suspend fun getAllMemo() = appDBInstance.getAllMemo()
+    suspend fun modifyMemo(id: Long, memo: String) = appDBInstance.modifyMemo(id, memo)
 }

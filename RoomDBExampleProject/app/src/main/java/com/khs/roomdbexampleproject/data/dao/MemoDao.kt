@@ -9,17 +9,17 @@ import com.khs.roomdbexampleproject.data.model.Memo
 @Dao
 interface MemoDao {
     @Insert
-    fun insertMemo(memo: Memo): Long // Long을 return하면 해당 memo의 id를 알 수 있다.
+    suspend fun insertMemo(memo: Memo): Long // Long을 return하면 해당 memo의 id를 알 수 있다.
 
     @Delete
-    fun deleteMemo(memo: Memo)
+    suspend fun deleteMemo(memo: Memo)
 
     @Query("DELETE FROM Memo Where id = :id")
-    fun deleteMemoByID(id: Long)
+    suspend fun deleteMemoByID(id: Long)
 
     @Query("SELECT * FROM Memo")
-    fun getAllMemo(): List<Memo>
+    suspend fun getAllMemo(): List<Memo>
 
     @Query("UPDATE Memo SET memo = :memo WHERE id = :id")
-    fun modifyMemo(id: Long, memo: String)
+    suspend fun modifyMemo(id: Long, memo: String)
 }
