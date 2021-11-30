@@ -52,10 +52,20 @@ class MainActivity : AppCompatActivity() {
 
         memoViewModel.isMemodeleteComplete.observe(this) {
             Log.d("deleteComplete::", "memo delete")
+
+            val position = memoList.indexOf(it)
+            memoList.removeAt(position)
+            memoRecyclerViewAdapter.notifyItemRemoved(position)
+            memoRecyclerViewAdapter.notifyItemChanged(position)
         }
 
         memoViewModel.isMemodeleteByIdComplete.observe(this) {
             Log.d("deleteComplete::", "memo delete")
+
+            val position = memoList.indexOf(it)
+            memoList.removeAt(position)
+            memoRecyclerViewAdapter.notifyItemRemoved(position)
+            memoRecyclerViewAdapter.notifyItemChanged(position)
         }
 
         memoViewModel.isMemoInsertComplete.observe(this) {
@@ -67,11 +77,32 @@ class MainActivity : AppCompatActivity() {
         }
 
         memoViewModel.isEdit.observe(this) {
-            binding.isEditing = it
+            binding.isEditing = it.isEdit
+            val position = memoList.indexOf(it.memo)
+
+            if(it.isEdit) {
+                if(memoRecyclerViewAdapter.lastEditIdx != -1) {
+                    memoList[memoRecyclerViewAdapter.lastEditIdx].editMode = false
+                    memoRecyclerViewAdapter.notifyItemChanged(memoRecyclerViewAdapter.lastEditIdx)
+                }
+
+                memoRecyclerViewAdapter.lastEditIdx = position
+                memoList[position].editMode = true
+                memoRecyclerViewAdapter.notifyItemChanged(position)
+            }
+
         }
 
         memoViewModel.isMemoModifyComplete.observe(this) {
             Log.d("modifyComplete::", "memo modified")
+
+            val position = memoList.indexOf(it.memo)
+
+            memoList[position].memo = it.editMemo
+            memoList[position].editMode = false
+
+            memoRecyclerViewAdapter.lastEditIdx = -1
+            memoRecyclerViewAdapter.notifyItemChanged(position)
         }
     }
 

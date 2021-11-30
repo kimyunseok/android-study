@@ -16,7 +16,7 @@ import com.khs.roomdbexampleproject.util.MemoDiffUtil
 class MemoRecyclerViewAdapter(val context: Context, val itemList: MutableList<Memo>,
                               val memoViewModel: MemoViewModel): RecyclerView.Adapter<MemoRecyclerViewAdapter.Holder>() {
 
-    private var lastEditIdx: Int = -1
+    var lastEditIdx: Int = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = HolderMemoBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -25,7 +25,7 @@ class MemoRecyclerViewAdapter(val context: Context, val itemList: MutableList<Me
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val item = itemList[position]
-        holder.bind(item, position)
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int {
@@ -33,41 +33,22 @@ class MemoRecyclerViewAdapter(val context: Context, val itemList: MutableList<Me
     }
 
     inner class Holder(val binding: HolderMemoBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Memo, position: Int) {
-            Log.d("check::", "$position")
+        fun bind(item: Memo) {
             binding.memo = item
             binding.input = item.memo
             //input을 따로 만든 이유 : 양방향 데이터 바인딩을 사용할 때
             //memo 모델의 memo 변수를 쓰면 리사이클러 뷰 내에서 자동으로 업데이트 된다.
 
             binding.editBtn.setOnClickListener {
-                memoViewModel.changeMode(true)
-                if(lastEditIdx != -1) {
-                    itemList[lastEditIdx].editMode = false
-                    notifyItemChanged(lastEditIdx)
-                }
-
-                lastEditIdx = position
-                item.editMode = true
-                notifyItemChanged(position)
+                memoViewModel.changeMode(item, true)
             }
 
             binding.removeBtn.setOnClickListener {
-                memoViewModel.deleteMemoById(item.id)
-                itemList.remove(item)
-                notifyItemRemoved(position)
-                notifyItemChanged(position)
+                memoViewModel.deleteMemoById(item)
             }
             binding.completeBtn.setOnClickListener {
-                memoViewModel.changeMode(false)
-                memoViewModel.modifyMemo(item.id, binding.input.toString())
-
-                item.memo = binding.input.toString()
-                item.editMode = false
-
-                lastEditIdx = -1
-
-                notifyItemChanged(position)
+                memoViewModel.changeMode(item, false)
+                memoViewModel.modifyMemo(item, binding.input.toString())
             }
         }
     }

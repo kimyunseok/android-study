@@ -9,19 +9,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MemoViewModel(private val memoRepository: MemoRepository): ViewModel() {
-    val isEdit = MutableLiveData<Boolean>()
+    val isEdit = MutableLiveData<EditMemoPostData>()
     val isMemoInsertComplete = MutableLiveData<Long>()
 
-    val isMemodeleteComplete = MutableLiveData<Long>()
-    val isMemodeleteByIdComplete = MutableLiveData<Long>()
-    val isMemoModifyComplete = MutableLiveData<Long>()
+    val isMemodeleteComplete = MutableLiveData<Memo>()
+    val isMemodeleteByIdComplete = MutableLiveData<Memo>()
+    val isMemoModifyComplete = MutableLiveData<EditMemoPostData>()
 
     val isGetAllMemoComplete = MutableLiveData<List<Memo>>()
 
-    // System.currentTimeMillis() 값을 넣어줌으로써, observer가 무조건 반응할 수 있도록 만들었다.
-    fun changeMode(_isEdit: Boolean) {
+
+    fun changeMode(memo: Memo, _isEdit: Boolean) {
         CoroutineScope(Dispatchers.IO).launch {
-            isEdit.postValue(_isEdit)
+            isEdit.postValue(EditMemoPostData(memo, memo.memo, _isEdit))
         }
     }
 
@@ -37,23 +37,23 @@ class MemoViewModel(private val memoRepository: MemoRepository): ViewModel() {
     fun deleteMemo(memo: Memo) {
         CoroutineScope(Dispatchers.IO).launch {
             memoRepository.deleteMemo(memo).let {
-                isMemodeleteComplete.postValue(System.currentTimeMillis())
+                isMemodeleteComplete.postValue(memo)
             }
         }
     }
 
-    fun deleteMemoById(id: Long) {
+    fun deleteMemoById(memo: Memo) {
         CoroutineScope(Dispatchers.IO).launch {
-            memoRepository.deleteMemoByID(id).let {
-                isMemodeleteByIdComplete.postValue(System.currentTimeMillis())
+            memoRepository.deleteMemoByID(memo.id).let {
+                isMemodeleteByIdComplete.postValue(memo)
             }
         }
     }
 
-    fun modifyMemo(id: Long, memo: String) {
+    fun modifyMemo(memo: Memo, editMemo: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            memoRepository.modifyMemo(id, memo).let {
-                isMemoModifyComplete.postValue(System.currentTimeMillis())
+            memoRepository.modifyMemo(memo.id, editMemo).let {
+                isMemoModifyComplete.postValue(EditMemoPostData(memo, editMemo, false))
             }
         }
     }
@@ -65,4 +65,6 @@ class MemoViewModel(private val memoRepository: MemoRepository): ViewModel() {
             }
         }
     }
+
+    inner class EditMemoPostData(val memo: Memo, val editMemo: String, val isEdit: Boolean)
 }
