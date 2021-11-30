@@ -63,9 +63,11 @@ class MainActivity : AppCompatActivity() {
             Log.d("deleteComplete::", "memo delete")
 
             val position = memoList.indexOf(it)
-            memoList.removeAt(position)
-            memoRecyclerViewAdapter.notifyItemRemoved(position)
-            memoRecyclerViewAdapter.notifyItemChanged(position)
+            if(position != -1) {
+                memoList.removeAt(position)
+                memoRecyclerViewAdapter.notifyItemRemoved(position)
+                memoRecyclerViewAdapter.notifyItemChanged(position)
+            }
         }
 
         memoViewModel.isMemoInsertComplete.observe(this) {

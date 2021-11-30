@@ -18,7 +18,6 @@ class MemoViewModel(private val memoRepository: MemoRepository): ViewModel() {
 
     val isGetAllMemoComplete = MutableLiveData<List<Memo>>()
 
-
     fun changeMode(memo: Memo, _isEdit: Boolean) {
         CoroutineScope(Dispatchers.IO).launch {
             isEdit.postValue(EditMemoPostData(memo, memo.memo, _isEdit))
