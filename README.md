@@ -34,3 +34,7 @@
 ##### 8. Retrofit & OkHttp - AAC ViewModel & MVVM ViewModel로 구현. Solved.AC 비공식 API 사용.
 [![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/147)
 [![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/RetrofitAndOkHttpExampleProject)
+
+##### 9. Room DataBase(SQLite) - AAC ViewModel & MVVM ViewModel로 구현.
+[![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/148)
+[![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/RoomDBExampleProject)
