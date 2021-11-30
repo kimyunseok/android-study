@@ -57,7 +57,6 @@ class MemoRecyclerViewAdapter(val context: Context, val itemList: MutableList<Me
                 notifyItemRemoved(position)
                 notifyItemChanged(position)
             }
-
             binding.completeBtn.setOnClickListener {
                 memoViewModel.changeMode(false)
                 memoViewModel.modifyMemo(item.id, binding.input.toString())
@@ -65,7 +64,6 @@ class MemoRecyclerViewAdapter(val context: Context, val itemList: MutableList<Me
                 item.memo = binding.input.toString()
                 item.editMode = false
 
-                binding.input = ""
                 notifyItemChanged(position)
             }
         }
