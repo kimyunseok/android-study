@@ -34,6 +34,7 @@ class MemoRecyclerViewAdapter(val context: Context, val itemList: MutableList<Me
 
     inner class Holder(val binding: HolderMemoBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Memo, position: Int) {
+            Log.d("check::", "$position")
             binding.memo = item
             binding.input = item.memo
             //input을 따로 만든 이유 : 양방향 데이터 바인딩을 사용할 때
@@ -63,6 +64,8 @@ class MemoRecyclerViewAdapter(val context: Context, val itemList: MutableList<Me
 
                 item.memo = binding.input.toString()
                 item.editMode = false
+
+                lastEditIdx = -1
 
                 notifyItemChanged(position)
             }
