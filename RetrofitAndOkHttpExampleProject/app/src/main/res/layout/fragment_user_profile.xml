@@ -8,7 +8,7 @@
 
         <variable
             name="model"
-            type="com.khs.retrofitandokhttpexampleproject.model.SolveAcGetUserDataModel" />
+            type="com.khs.retrofitandokhttpexampleproject.api.apiviewmodel.UserDataViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -25,7 +25,7 @@
                 android:id="@+id/profile_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="@{model.code == 200 ? View.VISIBLE : View.GONE}"
+                android:visibility="@{model.getUserDataRepositories.code == 200 ? View.VISIBLE : View.GONE}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
@@ -33,7 +33,7 @@
                     android:id="@+id/background_img"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    app:imageFromUrl="@{model.background.backgroundImageUrl}"
+                    app:imageFromUrl="@{model.getUserDataRepositories.background.backgroundImageUrl}"
                     app:layout_constraintTop_toTopOf="@+id/profile_img"
                     app:layout_constraintBottom_toBottomOf="@+id/profile_img"
                     app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
                     android:layout_width="210dp"
                     android:layout_height="210dp"
                     android:layout_marginTop="20dp"
-                    app:imageFromUrl="@{model.profileImageUrl}"
+                    app:imageFromUrl="@{model.getUserDataRepositories.profileImageUrl}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"/>
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@{model.code == 200 ? model.handle + '\n' + model.organizations.get(0).name : String.valueOf(' ')}"
+                    android:text="@{model.getUserDataRepositories.code == 200 ? model.getUserDataRepositories.handle + '\n' + model.getUserDataRepositories.organizations.get(0).name : String.valueOf(' ')}"
                     android:textColor="@color/black"
                     android:textSize="21sp"
                     android:textAlignment="center"
@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@{model.bio}"
+                    android:text="@{model.getUserDataRepositories.bio}"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     app:layout_constraintTop_toBottomOf="@id/handle_and_organization_tv"
@@ -98,7 +98,7 @@
                         android:id="@+id/solved_count_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{' ' + String.valueOf(model.solvedCount) + '개'}"
+                        android:text="@{' ' + String.valueOf(model.getUserDataRepositories.solvedCount) + '개'}"
                         android:textColor="@color/black"
                         android:textSize="17sp"
                         app:layout_constraintTop_toTopOf="parent"
@@ -133,7 +133,7 @@
                         android:id="@+id/tier_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{model.tierText}"
+                        android:text="@{model.getUserDataRepositories.tierText}"
                         android:textColor="@color/black"
                         android:textSize="17sp"
                         app:layout_constraintTop_toTopOf="parent"
@@ -149,7 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@{model.background.displayName}"
+                    android:text="@{model.getUserDataRepositories.background.displayName}"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     app:layout_constraintTop_toBottomOf="@id/tier_layout"
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@{model.background.displayDescription}"
+                    android:text="@{model.getUserDataRepositories.background.displayDescription}"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     app:layout_constraintTop_toBottomOf="@id/description_1_tv"
