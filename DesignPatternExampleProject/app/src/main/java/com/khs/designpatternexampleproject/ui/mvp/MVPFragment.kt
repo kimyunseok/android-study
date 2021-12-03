@@ -21,9 +21,8 @@ import com.khs.designpatternexampleproject.ui.mvp.presenter.MVPPresenter
  * View와 Model간에 의존성을 없앤 디자인 패턴이다.
  *
  * 장점 :
- * 1. View - Presenter, Presenter - Model 간은 인터페이스(Contract)를 통해 이루어진다.
- * 2. Presenter와 View가 1 : 1 관계이다.
- * 3. View와 Model은 서로에 대한 참조가 없다. 즉, 의존성이 없다.
+ * 1. View - Presenter, Presenter - Model 간은 인터페이스(Contract)를 통해 구현된다. 따라서 인터페이스를 구현할 때, UI 영역과 비즈니스 영역(데이터 + UI)을 명확하게 구분지을 수 있게된다.
+ * 2. View와 Model은 서로에 대한 참조가 없다. 즉, 의존성이 없다.
  *
  * 단점 :
  * 1. 1 : 1 관계이므로 View와 Presenter 사이에 의존성이 강해진다.
