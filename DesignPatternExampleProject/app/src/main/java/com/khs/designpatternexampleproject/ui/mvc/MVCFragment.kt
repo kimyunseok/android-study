@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
  *
  * MVC에서 Controller는 View에는 UI갱신, Model에는 데이터 업데이트 역할을 해줍니다.
  * View는 Model을 직접 참조할 수도있고, Controller를 통해 간접적으로 참조할 수 있다.
- * 그러나 결국에는 Model이 있어야만 하므로 View, Model간에 의존성이 생기게 된다.
+ * 그러나 결국에는 Model이 있어야만 View 표시가 가능하므로 View, Model간에 의존성이 생기게 된다.
  *
  * 장점 :
  * 1. 앱에서 기능을 구현하기가 가장 쉽다.
@@ -28,7 +28,7 @@ import kotlinx.coroutines.launch
  * 단점 :
  * 1. 하나의 클래스(Activity / Fragment)에 코드의 양이 증가한다. 이는 안드로이드 앱 아키텍처 원칙 '관심사 분리'에 어긋난다.
  * 2. 코드가 나중에 스파게티가 될 가능성이 높으므로 유지 및 보수가 어려워진다.
- * 3. View는 UI 갱신을 위해서 Model을 참조하게 되므로 View와 Model간의 의존성이 높아진다.
+ * 3. View는 UI 갱신을 위해서 Model을 참조하게 되므로 View와 Model간의 의존성이 높아진다. 이는 앱 테스트를 어렵게 만든다.
  *
  * */
 
@@ -80,22 +80,22 @@ class MVCFragment: BaseFragment<FragmentUserInfoNoDataBindingBinding>() {
 
     // Model -> View : View가 Model을 참조해서 UI를 Update. View와 Model간에 의존성이 생기게 된다.
     private fun getUserInfo() {
-        binding.userNameTv.text = userModel.getUserInfo().userName
-        binding.userAgeTv.text = userModel.getUserInfo().userAge
-        binding.userEmailTv.text = userModel.getUserInfo().userEmail
-        binding.userContactTv.text = userModel.getUserInfo().userContact
-        binding.userAddressTv.text = userModel.getUserInfo().userAddress
+        binding.userNameTv.text = userModel.getUserInfo()?.userName
+        binding.userAgeTv.text = userModel.getUserInfo()?.userAge
+        binding.userEmailTv.text = userModel.getUserInfo()?.userEmail
+        binding.userContactTv.text = userModel.getUserInfo()?.userContact
+        binding.userAddressTv.text = userModel.getUserInfo()?.userAddress
 
         Toast.makeText(requireContext(), context?.getString(R.string.get_info_complete_msg), Toast.LENGTH_SHORT).show()
     }
 
     // Model -> Controller -> View : View EditText Clear. Controller가 Model을 참조해서 View UI를 Update.
     private fun setInputText() {
-        binding.inputUserNameEditText.setText(userModel.getUserInfo().userName)
-        binding.inputUserAgeEditText.setText(userModel.getUserInfo().userAge)
-        binding.inputUserEmailEditText.setText(userModel.getUserInfo().userEmail)
-        binding.inputUserContactEditText.setText(userModel.getUserInfo().userContact)
-        binding.inputUserAddressEditText.setText(userModel.getUserInfo().userAddress)
+        binding.inputUserNameEditText.setText(userModel.getUserInfo()?.userName)
+        binding.inputUserAgeEditText.setText(userModel.getUserInfo()?.userAge)
+        binding.inputUserEmailEditText.setText(userModel.getUserInfo()?.userEmail)
+        binding.inputUserContactEditText.setText(userModel.getUserInfo()?.userContact)
+        binding.inputUserAddressEditText.setText(userModel.getUserInfo()?.userAddress)
     }
 
     // 현재 입력된 유저의 정보를 토대로 Nullable한 User 객체 Return.

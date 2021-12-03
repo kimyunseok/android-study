@@ -11,6 +11,7 @@ import com.khs.designpatternexampleproject.util.FragmentTransitionManager
 /**
  * 디자인 패턴(MVC, MVP, MVVM)에서의 MV는 모두 동일합니다.
  * Model : 데이터를 저장하는 계층입니다. Local DB / Server DB에서 데이터에 접근하는 모든 로직을 통틀어서 Model이라고 합니다.
+ * 모든 디자인 패턴에서, Model은 어디에도 의존되지 않는 독립적인 존재입니다.
  *
  * View : 데이터를 시각화하는 곳입니다. 즉, UI를 뜻합니다.
  */
