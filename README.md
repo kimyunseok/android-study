@@ -38,3 +38,7 @@
 ##### 9. Room DataBase(SQLite) - AAC ViewModel & MVVM ViewModel로 구현.
 [![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/148)
 [![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/RoomDBExampleProject)
+
+##### 10. Design Pattern Example Project - MVC, MVP, MVVM
+[![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/150)
+[![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/DesignPatternExampleProject)
