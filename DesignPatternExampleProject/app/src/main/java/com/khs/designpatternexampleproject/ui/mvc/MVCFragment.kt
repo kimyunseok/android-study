@@ -89,7 +89,7 @@ class MVCFragment: BaseFragment<FragmentUserInfoNoDataBindingBinding>() {
         Toast.makeText(requireContext(), context?.getString(R.string.get_info_complete_msg), Toast.LENGTH_SHORT).show()
     }
 
-    // Controller -> View : View EditText Clear. Controller가 View UI를 Update.
+    // Model -> Controller -> View : View EditText Clear. Controller가 Model을 참조해서 View UI를 Update.
     private fun setInputText() {
         binding.inputUserNameEditText.setText(userModel.getUserInfo().userName)
         binding.inputUserAgeEditText.setText(userModel.getUserInfo().userAge)
