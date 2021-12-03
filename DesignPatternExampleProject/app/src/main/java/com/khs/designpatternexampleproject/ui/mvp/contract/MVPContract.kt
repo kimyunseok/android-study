@@ -5,7 +5,7 @@ import com.khs.designpatternexampleproject.model.User
 
 /**
  * Contract는 MVP의 Interface입니다.
- * Model, View, Presenter에서 사용하게 될 기능들을 여기에 구현해야 합니다.
+ * View, Presenter에서 사용하게 될 기능들을 여기에 구현해야 합니다.
  *
  * View에는 setText()같은 View 처리 관련 메서드들이,
  * Presenter에는 Business Logic( View -> Presenter -> Model / Model -> Presenter -> View)같은
