@@ -6,4 +6,8 @@ data class User(
     var userContact: String,
     var userAddress: String,
     var userAge: String
-)
+) {
+    fun copyUser(): User {
+        return User(userEmail, userName, userContact, userAddress, userAge)
+    }
+}

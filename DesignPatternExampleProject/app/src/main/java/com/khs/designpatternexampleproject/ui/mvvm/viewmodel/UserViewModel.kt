@@ -60,7 +60,7 @@ class UserViewModel(private val userRepository: UserRepository): ViewModel() {
 
     private fun copyUserInfoToInputUserInfo(user: User) {
         // 깊은 복사 사용.
-        val inputUser = User(user.userEmail, user.userName, user.userContact, user.userAddress, user.userAge)
+        val inputUser = user.copyUser()
         _inputUserInfo.postValue(inputUser)
     }
 
