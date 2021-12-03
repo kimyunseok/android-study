@@ -14,8 +14,10 @@ class MVPPresenter(_userModel: UserModel, _mvpView: MVPContract.View): MVPContra
 
     override fun initUserInfo() {
         val user = userModel.getUserInfo()
-        mvpView.getUserInfo(user)
-        mvpView.setInputText(user)
+        user?.let { // 받아온 데이터가 NULL이 아닌 경우만 View에 처리해줌
+            mvpView.getUserInfo(user)
+            mvpView.setInputText(user)
+        }
     }
 
     override fun updateUserInfoModel() {
