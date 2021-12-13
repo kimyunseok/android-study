@@ -13,8 +13,10 @@ import java.lang.Exception
 import java.lang.NumberFormatException
 
 /**
- * getUserInfo : 유저 정보 불러옴.
- * setUserInfo : 유저 정보 저장.
+ * AAC ViewModel Class.
+ * UI와 관련된 데이터를 저장하는 클래스이다.
+ * Android의 수명주기에 맞게 사용할 수 있는 데이터 클래스이다.
+ * 따라서 메모리 누수로부터 자유롭고 화면 회전과 같은 상황에서도 데이터를 보관할 수 있다.
  */
 class UserInfoViewModel(private val myRepository: MyRepository): ViewModel() {
     //Binding목적. true PostValue 시, 수정 성공. false PostValue 시, 수정 실패
