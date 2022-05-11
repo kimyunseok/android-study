@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">RxjavaExampleProject</string>
 
+    <string name="user_info">유저 정보</string>
     <string name="user_name">유저 이름</string>
     <string name="user_idx">유저 idx</string>
 
