@@ -46,3 +46,7 @@
 ##### 11. AACViewModel & Android Architecture Guide
 [![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/152)
 [![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/AACViewModelAndRecommandedArchitectureExampleProject)
+
+##### 12. RxJava Example Project - LiveData와 비교
+[![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/162)
+[![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/RxjavaExampleProject)
