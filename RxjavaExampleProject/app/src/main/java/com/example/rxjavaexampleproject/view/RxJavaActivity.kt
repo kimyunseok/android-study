@@ -8,6 +8,7 @@ import com.example.rxjavaexampleproject.databinding.ActivityUserInfoBinding
 import com.example.rxjavaexampleproject.model.MyModel
 import com.example.rxjavaexampleproject.repository.MyRepository
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.ObservableOnSubscribe
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.observers.DisposableObserver
@@ -32,6 +33,27 @@ class RxJavaActivity: AppCompatActivity() {
     }
 
     private fun getObservable() {
+        /* Create로 생성한 Observable 코드. Stream을 직접 설정할 수 있음. */
+//        Observable.create(ObservableOnSubscribe<MyModel> { emitter ->
+//            emitter.onNext(myRepository.getMyModel())
+//            emitter.onComplete()
+//        }).subscribe(object: DisposableObserver<MyModel>() {
+//            override fun onNext(t: MyModel) {
+//                currentIdx = t.idx
+//                viewBinding.userIdxTv.text = t.idx.toString()
+//                viewBinding.userNameTv.text = t.name
+//            }
+//
+//            override fun onError(e: Throwable) {
+//                Toast.makeText(baseContext, "에러가 발생하였습니다.", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onComplete() {
+//                // onComplete() 호출시 자동으로 dispose() 메서드 호출됨.
+//                Log.d("RX::", "유저 정보 가져오기 성공.")
+//            }
+//        })
+
         Observable
             .just(myRepository.getMyModel())
             //.subscribeOn(Schedulers.io()) 네트워크 작업일 경우 IO 스레드에서 작업.
