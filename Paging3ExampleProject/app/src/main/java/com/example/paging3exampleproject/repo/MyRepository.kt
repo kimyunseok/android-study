@@ -16,7 +16,7 @@ class MyRepository {
             .split(' ').toList()
         override suspend fun getMyModel(pageId: Long): List<MyModel> {
             val list = mutableListOf<MyModel>()
-            for(i in 0 until 10) {
+            for(i in 0 until 12) {
                 val randIdx = (Math.random() * emojiList.size).toInt()
                 list.add(MyModel(emojiList[randIdx], (lastIdx++).toString()))
             }

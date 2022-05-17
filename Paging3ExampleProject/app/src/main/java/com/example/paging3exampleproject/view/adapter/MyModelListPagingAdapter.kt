@@ -22,6 +22,17 @@ class MyModelListPagingAdapter: PagingDataAdapter<MyModel, MyModelListPagingAdap
     }
 ) {
 
+    val contentsType = 1
+    val loadStateType = 2
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position == itemCount) {
+            contentsType
+        } else {
+            loadStateType
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyModelViewHolder {
         val viewBinding = ViewMyModelHolderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyModelViewHolder(viewBinding)

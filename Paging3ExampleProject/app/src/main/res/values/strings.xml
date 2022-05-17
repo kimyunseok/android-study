@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Paging3ExampleProject</string>
     <string name="paging_example">Paging 3.0 예시</string>
+    <string name="error_occur">에러가 발생했습니다.</string>
+    <string name="retry">다시 시도</string>
 </resources>
