@@ -50,3 +50,7 @@
 ##### 12. RxJava Example Project - LiveData와 비교
 [![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/162)
 [![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/RxjavaExampleProject)
+
+##### 13. Paging3.0 Example Project
+[![POST Badge](https://img.shields.io/badge/POST-000000?plastic&logoColor=white)](https://kimyunseok.tistory.com/166)
+[![Repo Badge](https://img.shields.io/badge/Git-000999?plastic&logoColor=white)](https://github.com/kimyunseok/android-study/tree/main/Paging3ExampleProject)
