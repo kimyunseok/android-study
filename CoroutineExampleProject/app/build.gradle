@@ -15,7 +15,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -43,4 +46,6 @@ dependencies {
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }
